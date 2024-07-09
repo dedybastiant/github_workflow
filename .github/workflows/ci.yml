@@ -17,4 +17,11 @@ jobs:
         echo "Build information" > build/info.txt
 
     - name: Test
-      run: echo "Testing"
+      run: |
+        echo "Testing"
+        if test -f build/info.txt; then
+          echo "File exists: build/info.txt"
+        else
+          echo "File does not exist: build/info.txt"
+          exit 1
+        fi
